@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.db1"
+        applicationId "com.dn"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

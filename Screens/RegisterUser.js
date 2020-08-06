@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Text, 
          View,
          TextInput,
-         Button,        
+         Button,      
+         Alert  
 } from 'react-native'
 //importing Realm Database
 import Realm from 'realm'
@@ -31,6 +32,14 @@ export default class RegisterUser extends Component {
     if (user_name) {
       if (user_contact) {
         if (user_address) {
+
+
+              let user_n=user_name.toString()
+              let user_c=user_contact.toString()
+              let user_ad=user_address.toString()
+
+             
+
           realm.write(() => {
             var ID =
               realm.objects('user_details').sorted('user_id', true).length > 0
@@ -39,9 +48,9 @@ export default class RegisterUser extends Component {
                 : 1;  
             realm.create('user_details', {
               user_id: ID,
-              user_name: that.state.user_name,
-              user_contact: that.state.user_contact,
-              user_address: that.state.user_address,
+              user_name:user_n,
+              user_contact: user_c,
+              user_address: user_ad,
             });
             Alert.alert(
               'Success',
@@ -49,7 +58,7 @@ export default class RegisterUser extends Component {
               [
                 {
                   text: 'Ok',
-                  onPress: () => that.props.navigation.navigate('HomeScreen'),
+                  onPress: () => that.props.navigation.navigate('Home'),
                 },
               ],
               { cancelable: false }
@@ -83,11 +92,11 @@ export default class RegisterUser extends Component {
                     placeholderTextColor = '#FF362E'
                     onChangeText = {user_contact =>this.setState({user_contact})}
                 />
-                <TextInput  
-                    placeholder = 'Address'
+               <TextInput  
+                    placeholder = 'Contact Number'
                     underlineColorAndroid = 'black'
                     placeholderTextColor = '#FF362E'
-                    onChange = {user_address =>this.setState({user_address})}
+                    onChangeText = {user_address =>this.setState({user_address})}
                 />
                
                     <Button 

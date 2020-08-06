@@ -1,4 +1,4 @@
-package com.db1;
+package com.dn;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "DB1";
+    return "dn";
   }
 }
