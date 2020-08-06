@@ -32,14 +32,6 @@ export default class RegisterUser extends Component {
     if (user_name) {
       if (user_contact) {
         if (user_address) {
-
-
-              let user_n=user_name.toString()
-              let user_c=user_contact.toString()
-              let user_ad=user_address.toString()
-
-             
-
           realm.write(() => {
             var ID =
               realm.objects('user_details').sorted('user_id', true).length > 0
@@ -48,9 +40,9 @@ export default class RegisterUser extends Component {
                 : 1;  
             realm.create('user_details', {
               user_id: ID,
-              user_name:user_n,
-              user_contact: user_c,
-              user_address: user_ad,
+              user_name:this.state.user_name,
+              user_contact: this.state.user_contact,
+              user_address: this.state.user_address,
             });
             Alert.alert(
               'Success',
@@ -93,7 +85,7 @@ export default class RegisterUser extends Component {
                     onChangeText = {user_contact =>this.setState({user_contact})}
                 />
                <TextInput  
-                    placeholder = 'Contact Number'
+                    placeholder = 'Address'
                     underlineColorAndroid = 'black'
                     placeholderTextColor = '#FF362E'
                     onChangeText = {user_address =>this.setState({user_address})}
