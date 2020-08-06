@@ -40,9 +40,9 @@ export default class RegisterUser extends Component {
                 : 1;  
             realm.create('user_details', {
               user_id: ID,
-              user_name:this.state.user_name,
-              user_contact: this.state.user_contact,
-              user_address: this.state.user_address,
+              user_name:user_name,
+              user_contact: user_contact,
+              user_address: user_address,
             });
             Alert.alert(
               'Success',
